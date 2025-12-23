@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Algebra 2 – Factorisation</title>
+<style>
+  body{font-family:Arial,Helvetica,sans-serif;max-width:980px;margin:auto;padding:24px;line-height:1.7}
+  h1,h2,h3{color:#2c3e50}
+  .box{border:1px solid #ddd;border-radius:10px;padding:16px;margin:16px 0;background:#fafafa}
+  .note{background:#fff3cd;border-left:6px solid #f0ad4e;padding:12px;margin:12px 0}
+  .ok{color:#2e7d32;font-weight:bold}
+  .bad{color:#c62828;font-weight:bold}
+  .step{margin:10px 0}
+  input{padding:8px;font-size:16px;width:220px}
+  button{padding:8px 12px;font-size:14px;cursor:pointer;margin-left:6px}
+  .small{font-size:0.95em;color:#555}
+  ul{margin-left:18px}
+</style>
+</head>
+<body>
+
+<h1>Algebra 2: Factorisation</h1>
+
+<p>
+This lesson teaches factorisation from the very beginning.
+Go slowly. Read each explanation. Practise each type.
+This is a core exam skill used in many other topics.
+</p>
+
+<div class="box">
+<h2>Learning objectives</h2>
+<ul>
+  <li>Factorise by taking out a common factor</li>
+  <li>Recognise and factorise a difference of two squares</li>
+  <li>Factorise trinomials of the form x² + bx + c</li>
+  <li>Factorise trinomials of the form ax² + bx + c</li>
+  <li>Factorise fully</li>
+  <li>Use factorisation to solve equations</li>
+</ul>
+</div>
+
+<!-- SECTION 1 -->
+<div class="box">
+<h2>1) Common factor</h2>
+<p><strong>Idea:</strong> take out what appears in <em>every</em> term.</p>
+
+<p><strong>Example:</strong> 8x² − 4x</p>
+<p class="small">Common factors: 4 and x → take out 4x</p>
+<p><strong>Answer:</strong> 4x(2x − 1)</p>
+
+<div class="step">
+<label>Try: Factorise 12a² + 6a</label><br>
+<input id="cf1" placeholder="Your answer">
+<button onclick="chk('cf1',['6a(2a+1)'])">Check</button>
+<span id="f_cf1"></span>
+</div>
+
+<div class="note">
+<strong>Common mistake:</strong> forgetting the letter when taking out the factor.
+</div>
+</div>
+
+<!-- SECTION 2 -->
+<div class="box">
+<h2>2) Difference of two squares</h2>
+<p><strong>Pattern:</strong> a² − b² = (a − b)(a + b)</p>
+
+<p><strong>Example:</strong> 4x² − 25 = (2x − 5)(2x + 5)</p>
+
+<div class="step">
+<label>Try: Factorise x² − 16</label><br>
+<input id="ds1" placeholder="Your answer">
+<button onclick="chk('ds1',['(x-4)(x+4)','(x+4)(x-4)'])">Check</button>
+<span id="f_ds1"></span>
+</div>
+
+<div class="note">
+This only works with subtraction, not addition.
+</div>
+</div>
+
+<!-- SECTION 3 -->
+<div class="box">
+<h2>3) Trinomials: x² + bx + c</h2>
+<p>Find two numbers that <strong>multiply to c</strong> and <strong>add to b</strong>.</p>
+
+<p><strong>Example:</strong> x² + 7x + 10 → (x + 5)(x + 2)</p>
+
+<div class="step">
+<label>Try: Factorise x² − 5x + 6</label><br>
+<input id="tri1" placeholder="Your answer">
+<button onclick="chk('tri1',['(x-2)(x-3)','(x-3)(x-2)'])">Check</button>
+<span id="f_tri1"></span>
+</div>
+
+<div class="note">
+If c is positive and b is negative, both numbers are negative.
+</div>
+</div>
+
+<!-- SECTION 4 -->
+<div class="box">
+<h2>4) Trinomials: ax² + bx + c</h2>
+<p><strong>Method:</strong> ac method (go step by step).</p>
+
+<p><strong>Example:</strong> 2x² + 7x + 3 → (2x + 1)(x + 3)</p>
+
+<div class="step">
+<label>Try: Factorise 3x² + 5x + 2</label><br>
+<input id="tri2" placeholder="Your answer">
+<button onclick="chk('tri2',['(3x+2)(x+1)','(x+1)(3x+2)'])">Check</button>
+<span id="f_tri2"></span>
+</div>
+
+<div class="note">
+Take your time. Most errors here come from rushing.
+</div>
+</div>
+
+<!-- SECTION 5 -->
+<div class="box">
+<h2>5) Factorising fully</h2>
+<p>Always check for a common factor <em>first</em>.</p>
+
+<p><strong>Example:</strong> 6x² − 24 = 6(x² − 4) = 6(x − 2)(x + 2)</p>
+
+<div class="step">
+<label>Try: Factorise fully 4x² − 16</label><br>
+<input id="full1" placeholder="Your answer">
+<button onclick="chk('full1',['4(x-2)(x+2)','4(x+2)(x-2)'])">Check</button>
+<span id="f_full1"></span>
+</div>
+</div>
+
+<!-- SECTION 6 -->
+<div class="box">
+<h2>6) Solving using factorisation</h2>
+<p>If ab = 0, then a = 0 or b = 0.</p>
+
+<p><strong>Example:</strong> x² − 9 = 0 → (x − 3)(x + 3) = 0 → x = 3 or −3</p>
+
+<div class="step">
+<label>Solve: x² + 6x = 0</label><br>
+<input id="sol1" placeholder="e.g. x=0 or x=-6">
+<button onclick="chkSol()">Check</button>
+<span id="f_sol1"></span>
+</div>
+
+<div class="note">
+Write <strong>both</strong> solutions. Missing one loses marks.
+</div>
+</div>
+
+<h2>Exam reminder</h2>
+<p>
+Factorisation earns method marks.
+Work clearly, factorise fully, and check your signs.
+</p>
+
+<script>
+function norm(s){return s.replace(/\s+/g,'').toLowerCase();}
+function out(id,msg,ok){
+  const el=document.getElementById('f_'+id);
+  el.textContent=msg;
+  el.className= ok ? 'ok' : 'bad';
+}
+function chk(id,answers){
+  const v=norm(document.getElementById(id).value);
+  for(const a of answers){
+    if(v===norm(a)){ out(id,'✔ Correct',true); return;}
+  }
+  out(id,'✘ Check signs or factorisation',false);
+}
+function chkSol(){
+  const v=norm(document.getElementById('sol1').value);
+  const ok = (v.includes('x=0') && (v.includes('x=-6')||v.includes('-6')));
+  const el=document.getElementById('f_sol1');
+  if(ok){el.textContent='✔ Correct';el.className='ok';}
+  else{el.textContent='✘ Give both solutions';el.className='bad';}
+}
+</script>
+
+</body>
+</html>
