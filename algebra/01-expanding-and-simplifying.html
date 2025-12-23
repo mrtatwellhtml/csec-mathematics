@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Algebra 1 – Expanding & Simplifying</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 900px;
+      margin: auto;
+      padding: 20px;
+      line-height: 1.6;
+    }
+    h1, h2, h3 {
+      color: #2c3e50;
+    }
+    .box {
+      border: 1px solid #ccc;
+      padding: 15px;
+      margin: 15px 0;
+      border-radius: 8px;
+      background: #f9f9f9;
+    }
+    .step {
+      margin-top: 10px;
+    }
+    input {
+      padding: 6px;
+      width: 180px;
+      font-size: 16px;
+    }
+    button {
+      padding: 6px 12px;
+      margin-left: 5px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+    .feedback {
+      margin-top: 8px;
+      font-weight: bold;
+    }
+    .correct {
+      color: green;
+    }
+    .wrong {
+      color: red;
+    }
+    .tip {
+      background: #fff3cd;
+      border-left: 5px solid #f0ad4e;
+      padding: 10px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Algebra 1: Expanding & Simplifying</h1>
+
+<p>
+In this lesson, you will practise removing brackets and simplifying expressions.
+This skill appears very often in exams and is usually the <strong>first step</strong>
+in longer questions.
+</p>
+
+<div class="box">
+  <h2>Key Reminder</h2>
+  <p><strong>Everything inside the bracket must be multiplied.</strong></p>
+</div>
+
+<h2>Guided Example</h2>
+
+<div class="box">
+  <p>Simplify:</p>
+  <p><strong>5(2x − 3) − 2(3x + 4)</strong></p>
+
+  <div class="step">
+    <p><strong>Step 1:</strong> Expand both brackets.</p>
+    <input id="ex1" placeholder="e.g. 10x - 15 - 6x - 8">
+    <button onclick="checkEx1()">Check</button>
+    <div id="fb1" class="feedback"></div>
+  </div>
+
+  <div class="step">
+    <p><strong>Step 2:</strong> Simplify fully.</p>
+    <input id="ex2" placeholder="Final answer">
+    <button onclick="checkEx2()">Check</button>
+    <div id="fb2" class="feedback"></div>
+  </div>
+</div>
+
+<h2>Try This (Guided Practice)</h2>
+
+<div class="box">
+  <p>Simplify:</p>
+  <p><strong>3(4a − 2) − (5a − 7)</strong></p>
+
+  <div class="step">
+    <p><strong>Step 1:</strong> Expand both brackets.</p>
+    <input id="q1">
+    <button onclick="checkQ1()">Check</button>
+    <div id="fb3" class="feedback"></div>
+  </div>
+
+  <div class="step">
+    <p><strong>Step 2:</strong> Simplify fully.</p>
+    <input id="q2">
+    <button onclick="checkQ2()">Check</button>
+    <div id="fb4" class="feedback"></div>
+  </div>
+
+  <div class="tip">
+    <strong>Tip:</strong> Watch the minus sign in front of the second bracket.
+    It changes every sign inside.
+  </div>
+</div>
+
+<h2>Practice (Exam Style)</h2>
+
+<div class="box">
+  <p>1. Simplify: <strong>2(x − 3) + 4(2x + 1)</strong></p>
+  <input id="p1">
+  <button onclick="check('p1','10x-2')">Check</button>
+  <div id="fp1" class="feedback"></div>
+</div>
+
+<div class="box">
+  <p>2. Simplify: <strong>6(3y − 5) − 2(4y + 1)</strong></p>
+  <input id="p2">
+  <button onclick="check('p2','10y-32')">Check</button>
+  <div id="fp2" class="feedback"></div>
+</div>
+
+<div class="box">
+  <p>3. Simplify: <strong>-3(2p − 7) + 5(p + 4)</strong></p>
+  <input id="p3">
+  <button onclick="check('p3','-p+41')">Check</button>
+  <div id="fp3" class="feedback"></div>
+</div>
+
+<div class="box">
+  <p>4. Simplify: <strong>7 − 2(3x − 5)</strong></p>
+  <input id="p4">
+  <button onclick="check('p4','-6x+17')">Check</button>
+  <div id="fp4" class="feedback"></div>
+</div>
+
+<div class="box">
+  <p>5. Simplify: <strong>4(a − 3) − 3(2a − 1)</strong></p>
+  <input id="p5">
+  <button onclick="check('p5','-2a-9')">Check</button>
+  <div id="fp5" class="feedback"></div>
+</div>
+
+<h2>Exam Reminder</h2>
+<p>
+If expanding is wrong, everything after it loses marks.
+Slow down, check signs, then simplify.
+</p>
+
+<script>
+function normalise(x) {
+  return x.replace(/\s+/g, '').toLowerCase();
+}
+
+function check(id, answer) {
+  const input = normalise(document.getElementById(id).value);
+  const fb = document.getElementById("f" + id);
+  if (input === normalise(answer) || input === normalise(answer.split('').reverse().join(''))) {
+    fb.textContent = "✔ Correct";
+    fb.className = "feedback correct";
+  } else {
+    fb.textContent = "✘ Check your signs or simplify fully.";
+    fb.className = "feedback wrong";
+  }
+}
+
+function checkEx1() {
+  const v = normalise(document.getElementById("ex1").value);
+  const fb = document.getElementById("fb1");
+  if (v.includes("10x") && v.includes("-15") && v.includes("-6x") && v.includes("-8")) {
+    fb.textContent = "✔ Good expansion.";
+    fb.className = "feedback correct";
+  } else {
+    fb.textContent = "✘ Expand both brackets carefully.";
+    fb.className = "feedback wrong";
+  }
+}
+
+function checkEx2() {
+  const v = normalise(document.getElementById("ex2").value);
+  const fb = document.getElementById("fb2");
+  if (v === "4x-23" || v === "-23+4x") {
+    fb.textContent = "✔ Fully simplified.";
+    fb.className = "feedback correct";
+  } else {
+    fb.textContent = "✘ Combine like terms carefully.";
+    fb.className = "feedback wrong";
+  }
+}
+
+function checkQ1() {
+  const v = normalise(document.getElementById("q1").value);
+  const fb = document.getElementById("fb3");
+  if (v.includes("12a") && v.includes("-6") && v.includes("-5a") && v.includes("+7")) {
+    fb.textContent = "✔ Correct expansion.";
+    fb.className = "feedback correct";
+  } else {
+    fb.textContent = "✘ Check the minus sign before the bracket.";
+    fb.className = "feedback wrong";
+  }
+}
+
+function checkQ2() {
+  const v = normalise(document.getElementById("q2").value);
+  const fb = document.getElementById("fb4");
+  if (v === "7a+1" || v === "1+7a") {
+    fb.textContent = "✔ Well done.";
+    fb.className = "feedback correct";
+  } else {
+    fb.textContent = "✘ Simplify again.";
+    fb.className = "feedback wrong";
+  }
+}
+</script>
+
+</body>
+</html>
